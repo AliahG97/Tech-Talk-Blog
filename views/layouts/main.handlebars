@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech-Talk Blog</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="siteName" id="siteName">
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+            {{!-- {{#if loggedIn}} --}}
+            <button type="submit" class="btn btn-primary" id="logout">Logout</button>
+            {{!-- {{else}} --}}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            {{!-- {{/if}} --}}
+        </ul>
+        </nav>
+        </div>
+        </div>
+    </header>
+
+
+    <main class="main-container">
+        {{{body}}}
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+    {{!-- {{#if loggedIn}} --}}
+    <script src="/js/logout.js"></script>
+</body>
+
+</html>
