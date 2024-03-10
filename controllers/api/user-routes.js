@@ -9,11 +9,11 @@ router.get('/', async (req, res) => {
     try {
         const userData = await User.findAll({});
 
-        const users = userData.map((user) => user.get({plain: true}));
-            res.json(users);
+        const users = userData.map((user) => user.get({ plain: true }));
+        res.json(users);
 
 
-    }catch(err){
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
@@ -21,18 +21,18 @@ router.get('/', async (req, res) => {
 
 //Get a single User
 router.get('/:id', idValidation, async (req, res) => {
-    try{
+    try {
         const user = await User.findOne({
-            where:{id: req.params.id},
+            where: { id: req.params.id },
         });
 
-        if(!user){
-            return res.status(404).json({message: 'USer not found'});
+        if (!user) {
+            return res.status(404).json({ message: 'USer not found' });
         }
 
         res.json(user);
 
-    }catch(err){
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
 
 //Update a user
 router.put('/:id', idValidation, async (req, res) => {
-    try{
+    try {
         const updateUser = await User.update(
             {
                 username: req.body.username,
@@ -68,13 +68,13 @@ router.put('/:id', idValidation, async (req, res) => {
                 password: req.body.password,
             },
             {
-            where: {
-                id:req.params.id,
-            },
+                where: {
+                    id: req.params.id,
+                },
             });
-            return res.status(200).json(updateUser);
+        return res.status(200).json(updateUser);
 
-    }catch(err){
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
@@ -82,20 +82,20 @@ router.put('/:id', idValidation, async (req, res) => {
 
 //Delete a user
 router.delete('/:id', idValidation, async (req, res) => {
-    try{
+    try {
         const deleteUser = await User.destroy({
             where: {
                 id: req.params.id,
             },
         });
 
-        if(deleteUser){
-            return res.status(200).json({message: 'User DELETED Successfully'});
-    }else{
-        return res.status(204).json();
-    }
+        if (deleteUser) {
+            return res.status(200).json({ message: 'User DELETED Successfully' });
+        } else {
+            return res.status(204).json();
+        }
 
-    }catch(err) {
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
@@ -110,14 +110,14 @@ router.post('/login', async (req, res) => {
     try {
         const dbUserData = await User.findOne({
             where: {
-                email:req.body.email,
+                email: req.body.email,
             },
         });
 
         if (!dbUserData) {
             res
                 .status(400)
-                .json({ message: 'Incorrect email or password. Please try again!'});
+                .json({ message: 'Incorrect email or password. Please try again!' });
             return;
         }
 
@@ -126,7 +126,7 @@ router.post('/login', async (req, res) => {
         if (!validPassword) {
             res
                 .status(400)
-                .json({ message: 'Incorrect email or password. Please try again!'});
+                .json({ message: 'Incorrect email or password. Please try again!' });
             return;
         }
 
@@ -156,15 +156,16 @@ router.post('/logout', (req, res) => {
 
 //Sign Up
 router.post('/signup', async (req, res) => {
-    try{
+    try {
         const newUser = await User.create({
-            username:req.body.username,
+            username: req.body.username,
             email: req.body.email,
-            password:req.body.password,
+            password: req.body.password,
         });
-        res.status(201).json({message: 'Successfully Signed Up'});
-    }catch(err){
+        res.status(201).json({ message: 'Successfully Signed Up' });
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
+module.exports = router;

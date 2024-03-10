@@ -1,4 +1,4 @@
-const validatedId = (req, res, next) => {
+const validateId = (req, res, next) => {
     const checkId = req.params.id;
 
     if (!/^\d+$/.test(checkId)){
