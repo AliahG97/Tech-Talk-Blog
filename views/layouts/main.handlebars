@@ -14,11 +14,11 @@
         <ul class="nav">
             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
-            {{!-- {{#if loggedIn}} --}}
+            {{#if loggedIn}}
             <button type="submit" class="btn btn-primary" id="logout">Logout</button>
-            {{!-- {{else}} --}}
+            {{else}} 
             <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-            {{!-- {{/if}} --}}
+            {{/if}} 
         </ul>
         </nav>
         </div>
@@ -31,8 +31,7 @@
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
-    {{!-- {{#if loggedIn}} --}}
+    {{!-- {{#if loggedIn}}  --}}
     <script src="/js/logout.js"></script>
 </body>
-
 </html>

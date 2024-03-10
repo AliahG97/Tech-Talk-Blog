@@ -1,21 +1,10 @@
-<main class="home-container" >
-    hello i need to fill the space
-    _
-    ---
-    ----
-    -
-    -
-    -
-    - 
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
+{{#each allBlogPost}}
+<div class="card"></div>
+    <div class="card-body">
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">{{this.content}}</p>
+        <h5{{this.createAt}}></h5>
+    </div>
+</div>
+{{/each}}
 
-
-</main>
