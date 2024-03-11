@@ -3,8 +3,20 @@ const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Get homepage
-router.get('/', (req, res) => {
-    res.render('homepage', { loggedIn: req.session.loggedIn });
+router.get('/', async (req, res) => {
+    try { 
+        const BlogPostData = await BlogPost.findAll();
+        const BlogPost = BlogPostData.map((BlogPost) => BlogPost.get({plain:true}));
+
+        res.render('homepage',{ 
+            loggedIn: req.session.loggedIn,
+            BlogPost
+        });
+    }catch (error) {
+        console.error('Error fetching tech talk data:', error);
+        res.status(500).send('internal sever error');
+
+    }
 });
 
 //GET dashboard
@@ -40,7 +52,7 @@ router.get('/login', (req, res) => {
 });
 
 //Get Account
-router.get('/account', withAuth, async (req, res) => {
+router.get('/User', withAuth, async (req, res) => {
     try {
         const userData = await User.findAll({
             include: [{
