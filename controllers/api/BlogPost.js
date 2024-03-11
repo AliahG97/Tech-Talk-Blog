@@ -3,12 +3,12 @@ const express = require('express');
 const { BlogPost } = require('../../models');
 const router = express.Router();
 
-const { getBlogPost } = require('./BlogPost');
+const { BlogPost } = require('./BlogPost');
 
 //Homeroute
 router.get('/', async (req, res) => {
     try {
-        const BlogPost = await getBlogPost();
+        const BlogPost = await BlogPost();
 
         res.render('homepage', {BlogPost});
     }catch (error){
@@ -17,9 +17,9 @@ router.get('/', async (req, res) => {
     }
 });
 
-exports.getAllBlogPost = async (req,res) => {
+exports.BlogPost = async (req,res) => {
     try {
-        const BlogPost =await BlogPost.find();
+        const BlogPost = await BlogPost.find();
         res.json(BlogPost);
     } catch (error) {
         console.error('Error fetching blog posts', error);
