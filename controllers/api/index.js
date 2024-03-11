@@ -7,7 +7,7 @@ const homeRoutes = require('./home');
 
 router.use('/users', userRoutes);
 router.use('/dashboard', dashboardRoutes);
-// router.use('/BlogPost', BlogPostRoutes);
+router.use('/BlogPost', BlogPostRoutes);
 // router.use('/home', homeRoutes);
 
 module.exports = router;

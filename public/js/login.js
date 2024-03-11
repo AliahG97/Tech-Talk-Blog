@@ -12,11 +12,12 @@ const loginFormHandler = async (event) => {
             body:JSON.stringify({email, password}),
             headers: {'Content-Type': 'application/json'}
         });
-        //if success redirect to X TODO:
-
-        // if (response.ok){
-            
-        // }
+        //if success redirect to home page
+        if (response.ok){
+            document.location.replace('./');
+        }else{
+            alert(response.statusText);
+        }
     }
 
 
