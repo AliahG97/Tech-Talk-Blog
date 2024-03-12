@@ -40,16 +40,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     }
 });
 
-//Get login
-router.get('/login', (req, res) => {
-    // If sessions exits, redirect the request to the homepage
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
 
-    res.render('login');
-});
 
 //Get Account
 router.get('/User', withAuth, async (req, res) => {

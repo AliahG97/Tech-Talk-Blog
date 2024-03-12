@@ -3,7 +3,7 @@ const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //dashboard route -- ADD 'withAuth,' between async
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         //fetch User's posts from database
         const userData = await User.findByPk(req.session.user_id, {
