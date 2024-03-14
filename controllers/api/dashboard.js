@@ -1,6 +1,54 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../../models');
+const { User, BlogPost, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
+
+router.post('/dashboard', withAuth, async (req, res) => {
+    try {
+        const { title, content } = req.body;
+
+        await BlogPost.create({
+            title: title,
+            content: content,
+            user_id:req.session.user_id
+        });
+
+        const userData = await User.findByPk(req.session.user_id, {
+            include:[{ model: BlogPost }],
+        });
+
+        const user = userData.get({ plain:true});
+        res.render('dashboard', {
+            ...user,
+            loggedIn: true,
+
+        }); 
+
+        res.redirect('/dashboard');
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+});
+
+router.delete('/Post/:id', withAuth, async (req, res) => {
+    try {
+        const blogPostData = await Post.findByPk(req.params.id);
+
+        if (blogPostData) {
+
+            await blogPostData.destroy();
+            res.redirect('/');
+        } else {
+            res.status(404).json({ message: 'Post not found'});
+        }
+    }catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+
+});
+
+
 
 //dashboard route -- ADD 'withAuth,' between async
 router.get('/', withAuth, async (req, res) => {
@@ -8,7 +56,7 @@ router.get('/', withAuth, async (req, res) => {
         //fetch User's posts from database
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
-            include: [{ model:Post }],
+            include: [{ model:BlogPost }],
         });
         // Serialize data to pass to template
         const user = userData.get({ plain:true});
