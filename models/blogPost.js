@@ -40,6 +40,8 @@ BlogPost.init(
     {
         sequelize,
         modelName: 'BlogPost',
+        freezeTableName:true,
+        underscored:false,
         hooks: {
             beforeUpdate(BlogPost) {
                 BlogPost.updatedAt = new Date();

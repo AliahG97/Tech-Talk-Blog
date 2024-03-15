@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { BlogPost, Comment } = require('../../models');
 
-Router.get('/:id', async (req,res) => {
+router.get('/:id', async (req,res) => {
     try {
         //fetch blog post data for specific ID
         const blogPostData = await BlogPost.findByPk(req.params.id, { include:Comment});
@@ -20,7 +20,7 @@ Router.get('/:id', async (req,res) => {
 });
 
 //Route handler for submitting Comment
-route.post('/:id/comment', async (req,res) => {
+router.post('/:id/comment', async (req,res) => {
     try {
          // create a new comment
          const newComment = await Comment.create({

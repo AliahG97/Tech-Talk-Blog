@@ -108,12 +108,13 @@ router.delete('/:id', idValidation, async (req, res) => {
 // Login
 router.post('/login', async (req, res) => {
     try {
+        console.log('loggin in ..............................');
         const dbUserData = await User.findOne({
             where: {
                 email: req.body.email,
             },
         });
-
+        console.log('dbUserData: ', dbUserData);
         if (!dbUserData) {
             res
                 .status(400)
