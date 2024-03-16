@@ -4,12 +4,13 @@ const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
     try {
+        console.log(req.session)
         const { title, content } = req.body;
 
         await BlogPost.create({
             title: title,
             content: content,
-            user_id:req.session.user_id
+            userId:req.session.user_id
         });
 
         const userData = await User.findByPk(req.session.user_id, {
