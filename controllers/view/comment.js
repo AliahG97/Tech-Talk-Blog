@@ -24,11 +24,11 @@ router.post('/:id/comment', async (req,res) => {
     try {
          // create a new comment
          const newComment = await Comment.create({
-            content: req.nody.content,
+            content: req.body.content,
             postId:req.params.id,
             userId: req.session.userId
          });
-         req.redirect(`/blog${req.params.id}`);
+         res.redirect(`/blog/${req.params.id}`);
     }catch (error) {
         console.error('Error adding comment:', error);
         res.status(500).send('Internal Sever Error');

@@ -8,6 +8,12 @@ This is the home page
         <h5 class="card-title">{{this.title}}</h5>
         <p class="card-text">{{this.content}}</p>
         <h5{{this.createAt}}></h5>
+
+        <form action="/" method="POST">
+            <textarea name="comment" placeholder="Leave a comment"></textarea>
+            <input type="hidden" name="postId" value="{{this._id}}">
+            <button type="submit">Post Comment</button>
+        </form>
     </div>
 </div>
 {{/each}}
