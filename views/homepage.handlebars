@@ -9,12 +9,14 @@ This is the home page
         <p class="card-text">{{this.content}}</p>
         <h5{{this.createAt}}></h5>
 
-        <form action="/" method="POST">
+       <div>
             <textarea name="comment" placeholder="Leave a comment"></textarea>
             <input type="hidden" name="postId" value="{{this._id}}">
-            <button type="submit">Post Comment</button>
-        </form>
+            <button class="addComment" >Post Comment</button>
+         </div>
+    
     </div>
 </div>
 {{/each}}
 
+<script src="/js/home.js"></script>
