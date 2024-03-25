@@ -1,13 +1,40 @@
 const express = require('express');
 const router = express.Router();
-const { BlogPost } = require('../../models');
+const { BlogPost, Comment, User } = require('../../models');
 
 // Get homepage
 router.get('/', async (req, res) => {
     try { 
-        const BlogPostData = await BlogPost.findAll();
-        const data= BlogPostData.map((x) => x.get({plain:true}));
-        console.log('data: ', data);
+        const BlogPostData = await BlogPost.findAll({
+            include:[
+                {
+                    model: Comment,
+                    attributes: [ 'content'],
+                    include: [
+                        {
+                            model: User,
+                            attributes: [ 'username'
+                            ]
+                        }
+                    ]
+            
+                }
+            ]
+        });
+        const data= BlogPostData.map((x) =>{
+            const newValue = x.get({plain:true})
+            newValue.Comments = newValue.Comments.map(obj => {
+
+                return {
+                    content: obj.content,
+                    user: obj.User.username
+                    
+                }
+            }) 
+            console.log('Comments: ', newValue.Comments)
+            return newValue
+    });
+        // console.log('data: ', data);
         res.render('homepage',{ 
             loggedIn: req.session.loggedIn,
             blogPost: data
