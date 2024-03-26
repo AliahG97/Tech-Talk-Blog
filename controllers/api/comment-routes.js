@@ -27,7 +27,9 @@ router.post('/:id', async (req,res) => {
          const newComment = await Comment.create({
             content: req.body.content,
             postId:req.params.id,
-            userId: req.session.user_id
+            // ...req.body,
+            userId: req.session.user_id,
+            
          });
          res.redirect('/');
     }catch (error) {

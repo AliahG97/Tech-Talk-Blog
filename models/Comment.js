@@ -30,16 +30,21 @@ Comment.init(
                 key: 'id'
             }
         },
-        // createdAt: {
-        //     type: DataTypes.DATE,
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW
+        },
+        // body:{ 
+        //     type: DataTypes.STRING,
         //     allowNull: false,
-        //     default: Date.now
-        // },
-        // updatedAt: {
-        //     type: DataTypes.DATE,
-        //     allowNull: false,
-        //     default: Date.now
-        // },
+            
+        // }
     },
     {
         sequelize,
