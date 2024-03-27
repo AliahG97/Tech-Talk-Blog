@@ -1,9 +1,9 @@
 <div>
     <h2>Your Posts</h2>
 
-    <form >
+    <form id="updateForm">
 
-        <h2>Edit Blog Post:</h2>
+        <h2 data-blog_id="{{id}}" id="blogTitle">Edit Blog Post:</h2>
         <label for="title">Edit Title:</label>
         <input type="text" id="title" name="title" value="{{title}}">
         <label for="content">Edit Content:</label>
@@ -13,3 +13,5 @@
     </form>
 
 </div>
+
+<script src="/js/updateBlog.js"></script>

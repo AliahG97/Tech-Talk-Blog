@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comment, BlogPost } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //Get All comments
@@ -19,28 +19,13 @@ router.get('/comment/:id', async (req, res) => {
 // Put (update posts)
 router.put('/', withAuth, async (req, res) => {
     try {
-        console.log("hey we are in the put request!!!!!!")
-        console.log(req.session)
-        const { title, content } = req.body;
-
-        await BlogPost.create({
-            title: title,
-            content: content,
-            userId:req.session.user_id
-        });
-
-        const userData = await User.findByPk(req.session.user_id, {
-            include:[{ model: BlogPost }],
-        });
-
-        const user = userData.get({ plain:true});
-        res.render('updateBlog', {
-            ...user,
-            loggedIn: true,
-
-        }); 
-
-        res.redirect('/dashboard');
+        console.log("AAAAAAAAAAAA")
+        console.log(req.body)
+        
+        //we need to use update method on the BlogPost
+    
+        let updateBlog = await BlogPost.update()
+       
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
