@@ -7,7 +7,7 @@
     <div class="card-body">
         <h5 class="card-title">{{this.title}}</h5>
         <p class="card-text">{{this.content}}</p>
-        <h5{{this.createAt}}>
+        <h5{{this.createdAt}} - {{this.updatedAt}}>
             </h5>
 
             <form action="/api/comment/{{this.id}}" method="POST">
@@ -17,7 +17,7 @@
             </form>
         <ul>
             {{#each this.Comments}}
-            <li>{{this.user}} - {{this.content}}</li>
+            <li>{{format_date this.createdAt}} {{formatTimeWithoutSeconds this.createdAt}}  - {{this.user}} - {{this.content}}</li>
             {{/each}}
         </ul>        
 

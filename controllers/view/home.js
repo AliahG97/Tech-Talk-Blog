@@ -27,7 +27,9 @@ router.get('/', async (req, res) => {
 
                 return {
                     content: obj.content,
-                    user: obj.User.username
+                    user: obj.User.username,
+                    createdAt: obj.createdAt,
+                    updatedAt: obj.updatedAt
                     
                 }
             }) 
