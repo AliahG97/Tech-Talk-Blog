@@ -62,4 +62,34 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+// Updating blog
+// ---  /update/1
+router.get('/update/:id', async(req,res) => {
+    try{
+        console.log(req.params.id)
+        let blogId = req.params.id;
+
+        let singleBlog = await BlogPost.findByPk(blogId);
+
+        //console.log("ThiS IS SINGLE BLOG", singleBlog)
+
+        let blog = singleBlog.get({plain: true})
+        console.log("THIS IS BLOGGGGGG ", blog)
+
+
+        res.render('updateBlog',{
+            ...blog,
+            loggedIn: true,
+        })
+
+    }catch(err){
+        console.log(err);
+        res.status(500).json(err)
+    }
+
+
+
+
+ 
+})
 module.exports = router;

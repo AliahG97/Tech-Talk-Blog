@@ -1,19 +1,15 @@
 <div>
     <h2>Your Posts</h2>
-    {{#each BlogPosts}}
-    <div>
-        <h3>{{title}}</h3>
-        <p>{{content}}</p>
-    </div>
-    <form action="/updateBlog" method="PUT">
+
+    <form >
 
         <h2>Edit Blog Post:</h2>
         <label for="title">Edit Title:</label>
-        <input type="text" id="title" name="title">
+        <input type="text" id="title" name="title" value="{{title}}">
         <label for="content">Edit Content:</label>
-        <textarea id="content" name="content"></textarea>
+        <textarea id="content" name="content" row="10">{{content}}</textarea>
         <button type="submit">Update Post</button>
         <button>Delete</button>
     </form>
-    {{/each}}
+
 </div>

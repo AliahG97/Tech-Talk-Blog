@@ -19,6 +19,7 @@ router.get('/comment/:id', async (req, res) => {
 // Put (update posts)
 router.put('/', withAuth, async (req, res) => {
     try {
+        console.log("hey we are in the put request!!!!!!")
         console.log(req.session)
         const { title, content } = req.body;
 
