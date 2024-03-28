@@ -24,7 +24,8 @@ router.put('/', withAuth, async (req, res) => {
         
         //we need to use update method on the BlogPost
     
-        let updateBlog = await BlogPost.update()
+        // TODO: fix this! checkout the CRUD activities in Sequalized Module 13
+        let updateBlog = await BlogPost.update({id: req.body.id}, req.body);
        
     } catch (err) {
         console.error(err);
@@ -32,7 +33,7 @@ router.put('/', withAuth, async (req, res) => {
     }
 });
 
-router.delete('/Post/:id', withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const blogPostData = await Post.findByPk(req.params.id);
 
