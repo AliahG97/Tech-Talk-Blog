@@ -18,7 +18,7 @@ document.getElementById('delete-btn')
 
 
 document.getElementById('update-btn')
-    .addEventListener('click',async function(event){
+    .addEventListener('click', async function(event){
     event.preventDefault();
     const title = document.getElementById("title").value;
     const content = document.getElementById("content").value;
@@ -27,7 +27,7 @@ document.getElementById('update-btn')
     console.log(id)
 
     if(title && content){
-        const response =  await fetch('/api/blogs/',{
+        const response =  await fetch(`/api/blogs/${id}`,{
             method: "PUT",
             body: JSON.stringify({title,content,id}),
             headers:{
@@ -38,7 +38,7 @@ document.getElementById('update-btn')
         console.log(response)
         console.log(response.ok)
     }else{
-        alert("Fields cannot me empty")
+        alert("Fields cannot be empty")
     }
 
 
