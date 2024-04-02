@@ -24,6 +24,8 @@ The Tech Blog project is a CMS-style blog site designed for developers to publis
 8. Login: Email:al@hotmail.com Password:password12
 
 ## Screenshot
+![ReadMe Gen Screenshot](./public/images/techtalkblog-screenshot.gif)
+
 https://github.com/AliahG97/Tech-Talk-Blog
 
 ## Usage
