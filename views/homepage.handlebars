@@ -13,11 +13,11 @@
             <form action="/api/comment/{{this.id}}" method="POST">
                 <textarea name="content" placeholder="Leave a comment"></textarea>
                 {{!-- <input type="hidden" name="postId" value="{{this.id}}"> --}}
-                <button><a type="submit" class="addComment" data-postId="{{this.id}}" href="/login">Post Comment</a></button>
+                <button type="submit" class="addComment" data-postId="{{this.id}}" >Post Comment</button>
             </form>
         <ul>
             {{#each this.Comments}}
-            <li>{{format_date this.createdAt}} {{formatTimeWithoutSeconds this.createdAt}}  - {{this.user}} - {{this.content}}</li>
+            <li>{{format_date this.createdAt}} {{formatTimeWithoutSeconds this.createdAt}} - {{this.content}}</li>
             {{/each}}
         </ul>        
 

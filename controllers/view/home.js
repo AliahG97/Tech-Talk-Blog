@@ -23,17 +23,17 @@ router.get('/', async (req, res) => {
         });
         const data= BlogPostData.map((x) =>{
             const newValue = x.get({plain:true})
-            newValue.Comments = newValue.Comments.map(obj => {
+            // newValue.Comments = newValue.Comments.map(obj => {
 
-                return {
-                    content: obj.content,
-                    user: obj.User.username,
-                    createdAt: obj.createdAt,
-                    updatedAt: obj.updatedAt
+            //     return {
+            //         content: obj.content,
+            //         user: obj.User.username,
+            //         createdAt: obj.createdAt,
+            //         updatedAt: obj.updatedAt
                     
-                }
-            }) 
-            console.log('Comments: ', newValue.Comments)
+            //     }
+            // }) 
+            // console.log('Comments: ', newValue.Comments)
             return newValue
     });
         // console.log('data: ', data);
