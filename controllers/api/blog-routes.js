@@ -19,7 +19,6 @@ router.get('/comment/:id', async (req, res) => {
 // Put (update posts)
 router.put('/:id', withAuth, async (req, res) => {
     try {
-        console.log("AAAAAAAAAAAA")
         console.log(req.body)
         
         //we need to use update method on the BlogPost
