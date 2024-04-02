@@ -13,7 +13,7 @@
             <form action="/api/comment/{{this.id}}" method="POST">
                 <textarea name="content" placeholder="Leave a comment"></textarea>
                 {{!-- <input type="hidden" name="postId" value="{{this.id}}"> --}}
-                <button type="submit" class="addComment" data-postId="{{this.id}}">Post Comment</button>
+                <button><a type="submit" class="addComment" data-postId="{{this.id}}" href="/login">Post Comment</a></button>
             </form>
         <ul>
             {{#each this.Comments}}
