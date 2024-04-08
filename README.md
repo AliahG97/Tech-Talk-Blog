@@ -24,9 +24,10 @@ The Tech Blog project is a CMS-style blog site designed for developers to publis
 8. Login: Email:al@hotmail.com Password:password12
 
 ## Screenshot
-![ReadMe Gen Screenshot](./public/images/techtalkblog-screenshot.gif)
-
-https://github.com/AliahG97/Tech-Talk-Blog
+![ReadMe Gen Screenshot](./public/images/techtalkblog-screenshot.gif) 
+Deployed: https://tech-talk-blog-a3ece97b4b44.herokuapp.com/
+Repo: https://github.com/AliahG97/Tech-Talk-Blog
+Watch video: https://www.youtube.com/watch?v=dmxyTTSWcUs
 
 ## Usage
 Users can access the Tech Blog site via a web browser. The homepage displays all existing blog posts from all users, navigation links, and options to log in or sign up. Users can create an account, log in, view blog posts, comment on posts, create new posts, and manage their posts from the dashboard.
