@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { BlogPost, Comment, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // Get homepage
 router.get('/', async (req, res) => {
@@ -58,7 +59,12 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-router.get('/signup', (req, res) => {
+router.get('/signup',  (req, res) => {
+     // If sessions exits, redirect the request to the homepage
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
     res.render('signup');
 });
 
