@@ -21,7 +21,6 @@ The Tech Blog project is a CMS-style blog site designed for developers to publis
 5. Set up your mySQL database by importing the provided schema and seeds files.
 6. Update the database connection details (PORT) in the application code.
 7. Start the application with npm run watch given nodemon.
-8. Login: Email:al@hotmail.com Password:password12
 
 ## Screenshot
 ![ReadMe Gen Screenshot](./public/images/techtalkblog-screenshot.gif) 
@@ -35,7 +34,7 @@ Users can access the Tech Blog site via a web browser. The homepage displays all
 ## Features
 1. View blog: Users can view all blog posts on the home page upon arriving on the application web page without being logged in.
 
-2. Login: In order for the users to comment on the blogs that they're seeing or create blog posts in the dashboard, they must be login or create an account.
+2. Sign up & Login: In order for the users to comment on the blogs that they're seeing or create blog posts in the dashboard, they must be login or create an account.
 
 3. Comment: The user can leave a comment on the homepage under a blog post. The comment will be displayed below the blogpost , with the time and date that the comment was published.
 
@@ -46,7 +45,6 @@ Users can access the Tech Blog site via a web browser. The homepage displays all
 6. Delete existing post: If the user wants to delete an existing blog post, they would just click the update but for the desired blog post. and they would click the delete button. Once they return to the homepage, that blog post will be removed from the list of all users existing blog posts as well as if they return to their dashboard page.
 
 ## Contribution
-- Fix the sign up feature.
 - Add CSS
 
 ## Credits
